@@ -12,7 +12,7 @@ return function(Events)
     end)  -- This can also be used to display interface when a product goes out of stock - view our documentation!
 
     Events.Restock:Connect(function(Player, Product)
-        print(Player.Name, ' started to restock ', Product.Name)
+        print(Player.Name, ' restocked ', Product.Name)
     end) -- This can also be used to display interface when a product goes out of stock - view our documentation!
 
     Events.SupplyToolPickup:Connect(function(Player)

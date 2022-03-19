@@ -10,8 +10,8 @@ return {
     Stocking = {
         Enabled = true,
 
-        Group = 1,
-        Whitelisted = {200, 250, 255},
+        Group = 14196949,
+        Whitelisted = {200, 250, 254, 255},
 
         RestrictAmount = false,
         MaxDistance = 15

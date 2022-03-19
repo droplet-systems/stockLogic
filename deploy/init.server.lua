@@ -13,7 +13,7 @@ require(script.Stocking)(script.Configuration, {
     Items = Workspace.Items,
     Supplies = Workspace.Supplies,
     Tools = ServerStorage.Items,
-    SupplyTool = ServerStorage.SupplyTool,
+    SupplyTool = ServerStorage['Supply Tool'],
 
     Plugins = script.Plugins
 })

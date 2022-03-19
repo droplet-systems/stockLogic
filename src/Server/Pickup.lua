@@ -10,12 +10,10 @@ local warn = require(Shared.Warn)
 
 local Types = {
     ['ClickDetector'] = function(Obj, Run)
-        print('click detect')
         return Obj.MouseClick:Connect(Run)
     end,
 
     ['ProximityPrompt'] = function(Obj, Run)
-        print('prompot')
         return Obj.Activated:Connect(Run)
     end
 }
