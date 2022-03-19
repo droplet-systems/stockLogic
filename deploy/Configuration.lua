@@ -7,16 +7,18 @@
 -- Refer to our documentation to set up our product properly: https://nicklaus.gitbook.com/droplet/
 
 return {
-    AnalyticalLogging = true,
+    Stocking = {
+        Enabled = true,
 
-    Group = 1,
-    Whitelisted = {200, 250, 255},
-    IgnoreIfNoStaff = true,
+        Group = 1,
+        Whitelisted = {200, 250, 255},
 
-    Type = {
-        ClickDetector = true,
-        Prompt = false
+        RestrictAmount = false,
+        MaxDistance = 15
     },
-    Restriction = 1,
-    Magnitude = 15
+
+    Types = {
+        ClickDetector = true,
+        ProximityPrompt = false
+    }
 }

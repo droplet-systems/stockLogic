@@ -4,16 +4,18 @@
 -- ██║░░██║██╔══██╗██║░░██║██╔═══╝░██║░░░░░██╔══╝░░░░░██║░░░
 -- ██████╔╝██║░░██║╚█████╔╝██║░░░░░███████╗███████╗░░░██║░░░
 -- ╚═════╝░╚═╝░░╚═╝░╚════╝░╚═╝░░░░░╚══════╝╚══════╝░░░╚═╝░░░
--- Refer to our documentation to set up our product properly: https://nicklaus.gitbook.com/droplet/
+-- Refer to our documentation to learn about plugins: https://nicklaus.gitbook.com/droplet/
 
-local Workspace = game:GetService('Workspace')
-local ServerStorage = game:GetService('ServerStorage')
+return function(Events)
+    Events.Pickup:Connect(function(Player, Product)
+        print(Player.Name, ' picked up ', Product.Name)
+    end)  -- This can also be used to display interface when a product goes out of stock - view our documentation!
 
-require(script.Stocking)(script.Configuration, {
-    Items = Workspace.Items,
-    Supplies = Workspace.Supplies,
-    Tools = ServerStorage.Items,
-    SupplyTool = ServerStorage.SupplyTool,
+    Events.Restock:Connect(function(Player, Product)
+        print(Player.Name, ' started to restock ', Product.Name)
+    end) -- This can also be used to display interface when a product goes out of stock - view our documentation!
 
-    Plugins = script.Plugins
-})
+    Events.SupplyToolPickup:Connect(function(Player)
+        print(Player.Name, ' picked up the supply tool.')
+    end)
+end

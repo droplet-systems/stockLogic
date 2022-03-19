@@ -5,5 +5,5 @@
 return function(Content: string)
     if not Content then return end
 
-    warn(string.format('[droplet] [Stocking System] [%s]\n\n%s', debug.info(2, 's'), Content))
+    warn(string.format('[Stocking System @ droplet] [%s]\n\n%s', debug.info(2, 's'), Content))
 end
