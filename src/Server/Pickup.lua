@@ -15,6 +15,10 @@ return function(Objects, Events, Configuration)
         Detector.Parent = Obj
 
         Functions.BindDetectorToEvent(Detector, function(Player)
+            if not Obj:GetAttribute('Stock') then
+                return
+            end -- Make sure product isn't out of stock.
+                
             local Backpack = Player:WaitForChild('Backpack')
             local Tool = Tools:FindFirstChild(Obj.Name)
 
