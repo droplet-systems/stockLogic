@@ -24,7 +24,7 @@ return function (Config: ModuleScript, Objects)
 
     if Config then
         Config.Parent = Shared
-        Configuration = require(Configuration)
+        Configuration = require(Config)
     else
         warn('The configuration file was not found. Did you complete the setup properly? Perhaps you should read our documentation.')
         return
