@@ -39,6 +39,10 @@ return function(Objects, Events, Configuration)
                 Functions.SetProductTransparency(Obj, 1)
                 Obj.CanCollide = false
                 Obj:SetAttribute('Stock', false)
+
+                if Detector.ClassName == 'ClickDetector' then
+                    Detector.MaxActivationDistance = 0
+                end -- Hacky but working method to "disable" a click detector without destroying or dealing with connections.
             end
         end)
     end
