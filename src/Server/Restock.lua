@@ -41,6 +41,12 @@ return function(Objects, Events, Configuration)
                                 Item:SetAttribute('Stock', true)
 
                                 Events.Restock:Fire(Player, Item)
+
+                                local itemDetector = Item:FindFirstChildOfClass('ClickDetector')
+
+                                if itemDetector then
+                                   itemDetector.MaxActivationDistance = 32
+                                end -- Hacky but working method of enabling a click detector.
                             end
                         end
                     end
