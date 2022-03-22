@@ -9,11 +9,11 @@
 local Workspace = game:GetService('Workspace')
 local ServerStorage = game:GetService('ServerStorage')
 
-require(script.Stocking)(script.Configuration, {
+require(script.MainModule)(script.Configuration, {
     Items = Workspace.Items,
     Supplies = Workspace.Supplies,
-    Tools = ServerStorage.Items,
-    SupplyTool = ServerStorage['Supply Tool'],
+    Tools = ServerStorage.Tools,
+    SupplyTool = ServerStorage['Restock Tool'],
 
     Plugins = script.Plugins
 })

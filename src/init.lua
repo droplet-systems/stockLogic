@@ -21,6 +21,7 @@ local warn = require(Shared.Warn)
 
 return function (Configuration: ModuleScript, Objects)
     if Configuration then
+        Configuration.Parent = Shared
         Configuration = require(Configuration)
     else
         warn('The configuration file was not found. Did you complete the setup properly? Perhaps you should read our documentation.')

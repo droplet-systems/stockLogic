@@ -1,5 +1,5 @@
 {
-  "name": "Conveyer",
+  "name": "stockLogic",
   "tree": {
     "$className": "DataModel",
 
@@ -7,9 +7,10 @@
       "$className": "ServerScriptService",
       
       "Deploy": {
+        "$ignoreUnknownInstances": true,
         "$path": "deploy",
 
-        "Stocking": {
+        "MainModule": {
           "$path": "src"
         }
       }
