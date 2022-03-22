@@ -37,6 +37,7 @@ return function(Objects, Events, Configuration)
 
                             if Magnitude <= Configuration.Stocking.MaxDistance then
                                 Functions.SetProductTransparency(Item, 0)
+                                Item.CanCollide = true
                                 Item:SetAttribute('Stock', true)
 
                                 Events.Restock:Fire(Player, Item)
