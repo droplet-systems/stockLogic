@@ -19,9 +19,11 @@ local Shared = Stocking.Shared
 local Signal = require(Shared.Events)
 local warn = require(Shared.Warn)
 
-return function (Configuration: ModuleScript, Objects)
-    if Configuration then
-        Configuration.Parent = Shared
+return function (Config: ModuleScript, Objects)
+    local Configuration = nil
+
+    if Config then
+        Config.Parent = Shared
         Configuration = require(Configuration)
     else
         warn('The configuration file was not found. Did you complete the setup properly? Perhaps you should read our documentation.')
@@ -56,7 +58,7 @@ return function (Configuration: ModuleScript, Objects)
                 local Module = require(Obj)
 
                 if type(Module) == 'function' then
-                    Module(Events)
+                    Module(Events, Config)
                 else
                     warn(string.format('[Malformed Plugin - %s] Expected type function, but got type %s, plugin has been skipped & ignored.', Obj.Name, typeof(Module)))
                     return
