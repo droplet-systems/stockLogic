@@ -37,6 +37,7 @@ return function(Objects, Events, Configuration)
 
             if Configuration.Stocking.Enabled then
                 Functions.SetProductTransparency(Obj, 1)
+                Obj.CanCollide = false
                 Obj:SetAttribute('Stock', false)
             end
         end)
