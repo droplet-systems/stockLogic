@@ -55,14 +55,16 @@ return function (Config: ModuleScript, Objects)
 
         for _, Obj in pairs(Plugins:GetChildren()) do
             if Obj:IsA('ModuleScript') then
-                local Module = require(Obj)
+                pcall(function()
+                    local Module = require(Obj)
 
-                if type(Module) == 'function' then
-                    Module(Events, Config)
-                else
-                    warn(string.format('[Malformed Plugin - %s] Expected type function, but got type %s, plugin has been skipped & ignored.', Obj.Name, typeof(Module)))
-                    return
-                end
+                    if type(Module) == 'function' then
+                        Module(Events, Config)
+                    else
+                        warn(string.format('[Malformed Plugin - %s] Expected type function, but got type %s, plugin has been skipped & ignored.', Obj.Name, typeof(Module)))
+                        return
+                    end
+                end)
             end
         end
     end
