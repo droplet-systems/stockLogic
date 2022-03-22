@@ -6,6 +6,8 @@ local Functions = require(Shared.Functions)
 local warn = require(Shared.Warn)
 
 return function(Objects, Events, Configuration)
+    if not Configuration.Stocking.Enabled then return end -- Make sure this script only runs if stocking is enabled.
+
     local Items = Objects.Items
     local Supplies = Objects.Supplies
     local SupplyTool = Objects.SupplyTool
