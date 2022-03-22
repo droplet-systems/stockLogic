@@ -20,6 +20,8 @@ return function(Objects, Events, Configuration)
             if table.find(Configuration.Stocking.Whitelisted, Player:GetRankInGroup(Configuration.Stocking.Group)) then
                 local Backpack = Player:WaitForChild('Backpack')
 
+                if Backpack:FindFirstChild(SupplyTool.Name) then return end -- Make sure player doesn't already have the tool.
+
                 local Tool = SupplyTool:Clone()
                 Tool.Parent = Backpack
 
