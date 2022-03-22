@@ -35,7 +35,7 @@ return function(Objects, Events, Configuration)
                                 Functions.SetProductTransparency(Item, 0)
                                 Item:SetAttribute('Stock', true)
 
-                                Events.Restock:Fire(Player, Obj)
+                                Events.Restock:Fire(Player, Item)
                             end
                         end
                     end
