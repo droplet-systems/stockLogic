@@ -28,25 +28,32 @@ return function(Objects, Events, Configuration)
                 Events.SupplyToolPickup:Fire(Player)
 
                 Tool.Activated:Connect(function()
-                    for _, Item in pairs(Items:GetChildren()) do
-                        if not Item:GetAttribute('Stock') then
-                            local Character = Player.Character
-                            local HumanoidRootPart = Character.HumanoidRootPart
-
-                            local Magnitude = math.round((HumanoidRootPart.Position - Item.Position or Item:GetPivot()).Magnitude)
-
-                            if Magnitude <= Configuration.Stocking.MaxDistance then
-                                Functions.SetProductTransparency(Item, 0)
-                                Item.CanCollide = true
-                                Item:SetAttribute('Stock', true)
-
-                                Events.Restock:Fire(Player, Item)
-
-                                local itemDetector = Item:FindFirstChildOfClass('ClickDetector')
-
-                                if itemDetector then
-                                   itemDetector.MaxActivationDistance = 32
-                                end -- Hacky but working method of enabling a click detector.
+                    for _, Category in pairs(Items:GetChildren()) do
+                        for _, Item in pairs(Category:GetChildren()) do
+                            if not Item:GetAttribute('Stock') then
+                                local Character = Player.Character
+                                local HumanoidRootPart = Character.HumanoidRootPart
+    
+                                local Magnitude = math.round((HumanoidRootPart.Position - Item.Position or Item:GetPivot()).Magnitude)
+    
+                                if Magnitude <= Configuration.Stocking.MaxDistance then
+                                    Functions.SetProductTransparency(Item, 0)
+                                    Item.CanCollide = true
+                                    Item:SetAttribute('Stock', true)
+    
+                                    Events.Restock:Fire(Player, Item)
+    
+									local clickDetector = Item:FindFirstChildOfClass('ClickDetector')
+									local proximityPrompt = Item:FindFirstChildOfClass('ProximityPrompt')
+    
+                                    if clickDetector then
+                                       clickDetector.MaxActivationDistance = 32
+									end -- Hacky but working method of enabling a click detector.
+									
+									if proximityPrompt then
+										proximityPrompt.Enabled = true
+									end
+                                end
                             end
                         end
                     end
