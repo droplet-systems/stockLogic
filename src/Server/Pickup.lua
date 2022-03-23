@@ -25,7 +25,7 @@ return function(Objects, Events, Configuration)
 
                 if Tool then
                     for _, Object in pairs(Backpack:GetChildren()) do
-                        if Object.Name == Object.Name and Configuration.Stocking.RestrictAmount then
+                        if Object.Name == Category.Name and Configuration.Stocking.RestrictAmount then
                             return
                         end
                     end
