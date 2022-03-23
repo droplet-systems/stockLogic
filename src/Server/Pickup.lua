@@ -33,7 +33,7 @@ return function(Objects, Events, Configuration)
                     local Clone = Tool:Clone()
                     Clone.Parent = Backpack
 
-                    Events.Pickup:Fire(Player, Obj)
+                    Events.Pickup:Fire(Player, Category, Obj)
                 end
 
                 if Configuration.Stocking.Enabled then
