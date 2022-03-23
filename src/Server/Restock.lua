@@ -41,7 +41,7 @@ return function(Objects, Events, Configuration)
                                     Item.CanCollide = true
                                     Item:SetAttribute('Stock', true)
     
-                                    Events.Restock:Fire(Player, Item)
+                                    Events.Restock:Fire(Player, Category, Item)
     
 									local clickDetector = Item:FindFirstChildOfClass('ClickDetector')
 									local proximityPrompt = Item:FindFirstChildOfClass('ProximityPrompt')
