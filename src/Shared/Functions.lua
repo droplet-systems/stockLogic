@@ -64,6 +64,10 @@ Functions.SetProductTransparency = function(Obj, Value)
             if Child:IsA('BasePart') then
                 Child.Transparency = Value
             end
+
+            if Child:IsA('Decal') then
+                Child.Transparency = Value
+            end
         end
     end
 end
